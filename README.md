@@ -2,6 +2,7 @@
 
 ##プログラム内容
 入力した単語の母音の数を数えてくれるプログラム
+プログラムはmain.pyというファイルで作成した。
 
 ##クローンの仕方
 git clone https://github.com/HaruKato0915/robosys2025
