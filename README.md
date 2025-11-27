@@ -1,5 +1,27 @@
-- このソフトウェアパッケージは，3条項BSDライセンスの下，再頒布および使用が許可されます．
-- このパッケージは，由来のコード（© 2025 Haru Kato）を利用しています．
-- このパッケージのコードは，下記のスライド（CC-BY-SA 4.0 by Ryuichi Ueda）のものを，本人の許可を得て自身の著作としたものです．
-    - [ryuichiueda/my_slides robosys_2025](https://github.com/ryuichiueda/slides_marp/tree/master/prob_robotics_2025)
-- © 2025 Ryuichi Ueda
+##ロボットシステム学2025 課題1
+
+##プログラム内容
+入力した単語の母音の数を数えてくれるプログラム
+
+##クローンの仕方
+git clone https://github.com/HaruKato0915/robosys2025
+
+##実行方法
+cd robosys2025に移動
+echo "好きな英単語" | python3 main.pyで実行
+
+##実行結果
+例えばhelloと入れると2と出てくる
+
+##テスト環境
+Ubuntu22.04.5
+
+##ソフトウェア
+python
+
+##ライセンス
+このソフトウェアパッケージは，3条項BSDライセンスの下，再頒布および使用が許可されます．
+© 2025 Haru Kato
+
+
+
