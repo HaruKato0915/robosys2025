@@ -1,4 +1,4 @@
-#!/bin/bash -xv
+#!/usr/bin/env python3
 # SPDX ...
 
 ng () {
