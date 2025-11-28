@@ -1,6 +1,8 @@
 #!/bin/bash
-# SPDX-FileCopyrightText: 2025 haru kato
+# SPDX-FileCopyrightText: 2025 C-Haru kato
 # SPDX-License-Identifier: BSD-3-Clause
+
+set -o pipefail  # これで $(...) 内の exit code を正しく取得
 
 ng () {
     echo "${1}行目が違うよ"
@@ -10,35 +12,42 @@ ng () {
 res=0
 
 ### NORMAL INPUT ###
-# hello → 母音 "e" "o" の 2 個
-out=$(echo hello | ./main.py)
-[ "$?" = 0 ] || ng "$LINENO"
-[ "${out}" = 2 ] || ng "$LINENO"
+out=$(seq 5 | ./main.py)
+ret=$?
+[ "$ret" = 0 ] || ng "$LINENO"
+[ "${out}" = 2 ] || ng "$LINENO"  # 母音数は2？必要に応じて 15 に変更
 
-# aiueo → 母音 5 個
 out=$(echo aiueo | ./main.py)
-[ "$?" = 0 ] || ng "$LINENO"
+ret=$?
+[ "$ret" = 0 ] || ng "$LINENO"
 [ "${out}" = 5 ] || ng "$LINENO"
 
-
 ### STRANGE INPUT（英字以外 → エラー）###
-out=$(echo あ | ./main.py)
-[ "$?" = 1 ] || ng "$LINENO"
+./main.py <<< "あ"
+ret=$?
+[ "$ret" = 1 ] || ng "$LINENO"
+
+out=$(./main.py <<< "あ")
 [ -z "${out}" ] || ng "$LINENO"
 
-out=$(echo 123 | ./main.py)
-[ "$?" = 1 ] || ng "$LINENO"
-[ -z "${out}" ] || ng "$LINENO"
+./main.py <<< "123"
+ret=$?
+[ "$ret" = 1 ] || ng "$LINENO"
 
+out=$(./main.py <<< "123")
+[ -z "${out}" ] || ng "$LINENO"
 
 ### EMPTY INPUT（空文字 → エラー）###
-out=$(echo | ./main.py)
-[ "$?" = 1 ] || ng "$LINENO"
-[ -z "${out}" ] || ng "$LINENO"
+./main.py <<< ""
+ret=$?
+[ "$ret" = 1 ] || ng "$LINENO"
 
+out=$(./main.py <<< "")
+[ -z "${out}" ] || ng "$LINENO"
 
 [ "${res}" = 0 ] && echo OK
 exit $res
+
 
 
 
