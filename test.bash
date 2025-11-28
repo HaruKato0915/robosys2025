@@ -1,8 +1,8 @@
 #!/bin/bash
-# SPDX-FileCopyrightText: 2025 haru kato
+# SPDX-FileCopyrightText: 2025 C-joker
 # SPDX-License-Identifier: BSD-3-Clause
 
-set -o pipefail  # これで $(...) 内の exit code を正しく取得
+set -o pipefail  # $(...) 内の exit code を正しく取得
 
 ng () {
     echo "${1}行目が違うよ"
@@ -12,13 +12,11 @@ ng () {
 res=0
 
 ### NORMAL INPUT ###
-# hello → 母音 "e" "o" の 2 個
 out=$(echo hello | ./main.py)
 ret=$?
 [ "$ret" = 0 ] || ng "$LINENO"
-[ "${out}" = 2 ] || ng "$LINENO"
+[ "${out}" = 2 ] || ng "$LINENO"   # hello の母音は e,o の2個
 
-# aiueo → 母音 5 個
 out=$(echo aiueo | ./main.py)
 ret=$?
 [ "$ret" = 0 ] || ng "$LINENO"
@@ -28,14 +26,12 @@ ret=$?
 ./main.py <<< "あ"
 ret=$?
 [ "$ret" = 1 ] || ng "$LINENO"
-
 out=$(./main.py <<< "あ")
 [ -z "${out}" ] || ng "$LINENO"
 
 ./main.py <<< "123"
 ret=$?
 [ "$ret" = 1 ] || ng "$LINENO"
-
 out=$(./main.py <<< "123")
 [ -z "${out}" ] || ng "$LINENO"
 
@@ -43,7 +39,6 @@ out=$(./main.py <<< "123")
 ./main.py <<< ""
 ret=$?
 [ "$ret" = 1 ] || ng "$LINENO"
-
 out=$(./main.py <<< "")
 [ -z "${out}" ] || ng "$LINENO"
 
