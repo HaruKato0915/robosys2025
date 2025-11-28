@@ -1,4 +1,6 @@
-#!/usr/bin/env python3
+#!usr/bin/python3
+# SPDX-FileCopyrightText: 2025 Haru kato
+# SPDX-License-Identifier: GPL-3.0-only
 import sys
 
 def main():
