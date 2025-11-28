@@ -7,22 +7,20 @@ import string
 
 def main():
     text = sys.stdin.read().strip()
-
-    # 空入力 → エラー（出力なし・終了コード 1）
-    if text == "":
-        sys.exit(1)
-
-    # 英字（ASCIIのa-z）のみを許可する
-    allowed = set(string.ascii_letters)  # a-zA-Z
-    if any(c not in allowed for c in text):
-        sys.exit(1)
-
+    
+    # 空文字の場合はエラー終了
+    if not text:
+        exit(1)
+    
+    # 英字以外が含まれる場合もエラー終了
+    if not all(c in string.ascii_letters for c in text):
+        exit(1)
+    
     # 母音カウント
-    vowels = "aeiouAEIOU"
-    count = sum(1 for c in text if c in vowels)
-
+    vowels = "aeiou"
+    count = sum(1 for c in text.lower() if c in vowels)
     print(count)
-    sys.exit(0)
+    exit(0)
 
 if __name__ == "__main__":
     main()
