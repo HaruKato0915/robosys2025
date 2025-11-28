@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 
 ng () {
     echo "${1}行目が違うよ"
