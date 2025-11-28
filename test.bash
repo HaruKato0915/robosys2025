@@ -10,16 +10,16 @@ ng () {
 res=0
 
 ### NORMAL INPUT ###
-out=$(seq 5 | ./main.py)
+out=$(seq 5 | ./plus)
 [ "${out}" = 15 ] || ng "$LINENO"
 
 ### STRANGE INPUT ###
-out=$(echo あ | ./main.py)
+out=$(echo あ | ./plus)
 [ "$?" = 1 ] || ng "$LINENO"
 [ -z "${out}" ] || ng "$LINENO"
 
 ### EMPTY INPUT ###
-out=$(echo | ./main.py)
+out=$(echo | ./plus)
 [ "$?" = 1 ] || ng "$LINENO"
 [ -z "${out}" ] || ng "$LINENO"
 
