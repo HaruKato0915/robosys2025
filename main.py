@@ -1,4 +1,4 @@
-#!usr/bin/python3
+#!/usr/bin/env python3
 # SPDX-FileCopyrightText: 2025 Haru kato
 # SPDX-License-Identifier: GPL-3.0-only
 import sys
@@ -11,4 +11,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
