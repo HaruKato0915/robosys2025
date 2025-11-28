@@ -1,24 +1,28 @@
 #!/usr/bin/env python3
+# SPDX-FileCopyrightText: 2025 Haru kato
+# SPDX-License-Identifier: GPL-3.0-only
+
 import sys
+import string
 
 def main():
     text = sys.stdin.read().strip()
 
-    # 空入力 → エラー
-    if not text:
-        exit(1)
+    # 空入力 → エラー（出力なし・終了コード 1）
+    if text == "":
+        sys.exit(1)
 
-    # 英字以外が1文字でもあったらエラー
-    if not text.isalpha():
-        exit(1)
+    # 英字（ASCIIのa-z）のみを許可する
+    allowed = set(string.ascii_letters)  # a-zA-Z
+    if any(c not in allowed for c in text):
+        sys.exit(1)
 
-    vowels = "aeiou"
-    text = text.lower()
-
+    # 母音カウント
+    vowels = "aeiouAEIOU"
     count = sum(1 for c in text if c in vowels)
 
     print(count)
-    exit(0)
+    sys.exit(0)
 
 if __name__ == "__main__":
     main()
