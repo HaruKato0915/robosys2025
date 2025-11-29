@@ -1,5 +1,5 @@
 ## ロボットシステム学第1回課題
-[![test](https://github.com/HaruKato0915/robosys2025/blob/main/main.py)](https://github.com/HaruKato0915/robosys2025/blob/main/test.bash)
+[![test]((https://github.com/HaruKato0915/robosys2025/actions/workflows/test.yml/badge.svg)](https://github.com/HaruKato0915/robosys2025/actions/workflows/test.yml)
 
 ## プログラム内容
 入力した単語の母音の数を数えてくれるプログラム。
