@@ -1,7 +1,7 @@
 ## ロボットシステム学第1回課題
 [![test](https://github.com/HaruKato0915/robosys2025/blob/main/main.py)](https://github.com/HaruKato0915/robosys2025/blob/main/test.bash)
 ## プログラム内容
-入力した単語の母音の数を数えてくれるプログラム
+入力した単語の母音の数を数えてくれるプログラム。
 プログラムはmain.pyというファイルで作成した。
 
 ## クローンの仕方
