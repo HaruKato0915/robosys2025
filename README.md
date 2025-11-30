@@ -25,6 +25,7 @@ python
 ## ライセンス
 このソフトウェアパッケージは，3条項BSDライセンスの下，再頒布および使用が許可されます．
 © 2025 Haru Kato
+
 SPDX-FileCopyrightText: 2025 haru kato
 SPDX-License-Identifier: GPL-3.0-or-later
 
