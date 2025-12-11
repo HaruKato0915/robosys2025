@@ -9,8 +9,11 @@
 $ git clone https://github.com/HaruKato0915/robosys2025
 
 ## 実行方法
+```bash
 $ cd robosys2025に移動
-$ echo "好きな英単語" | python3 vowelcountで実行
+$ chmod +x vowelcount
+$ echo "好きな英単語" | python3 vowelcount
+```
 
 ## 実行結果
 例えばhelloと入れると母音の数が2つより、2と出てくる
