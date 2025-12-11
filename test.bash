@@ -12,34 +12,34 @@ ng () {
 res=0
 
 ### NORMAL INPUT ###
-out=$(echo hello | ./main.py)
+out=$(echo hello | ./vowelcount)
 ret=$?
 [ "$ret" = 0 ] || ng "$LINENO"
 [ "${out}" = 2 ] || ng "$LINENO"   # hello の母音は e,o の2個
 
-out=$(echo aiueo | ./main.py)
+out=$(echo aiueo | ./vowelcount)
 ret=$?
 [ "$ret" = 0 ] || ng "$LINENO"
 [ "${out}" = 5 ] || ng "$LINENO"
 
 ### STRANGE INPUT（英字以外 → エラー）###
-./main.py <<< "あ"
+./vowelcount <<< "あ"
 ret=$?
 [ "$ret" = 1 ] || ng "$LINENO"
-out=$(./main.py <<< "あ")
+out=$(./vowelcount<<< "あ")
 [ -z "${out}" ] || ng "$LINENO"
 
-./main.py <<< "123"
+./vowelcount <<< "123"
 ret=$?
 [ "$ret" = 1 ] || ng "$LINENO"
-out=$(./main.py <<< "123")
+out=$(./vowelcount <<< "123")
 [ -z "${out}" ] || ng "$LINENO"
 
 ### EMPTY INPUT（空文字 → エラー）###
-./main.py <<< ""
+./vowelcount <<< ""
 ret=$?
 [ "$ret" = 1 ] || ng "$LINENO"
-out=$(./main.py <<< "")
+out=$(./vowelcount <<< "")
 [ -z "${out}" ] || ng "$LINENO"
 
 [ "${res}" = 0 ] && echo OK
