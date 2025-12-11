@@ -23,7 +23,7 @@ jobs:
 
       - name: Ensure scripts are executable
         run: |
-          chmod +x main.py
+          chmod +x vowelcount
           chmod +x test.bash
 
       - name: Run test
